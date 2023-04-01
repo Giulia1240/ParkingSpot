@@ -17,7 +17,7 @@ public class ParkingSpotModel implements Serializable {
     private UUID id;
     @Column(nullable = false, unique = true, length = 10)
     private String parkingSpotNumber;
-    @Column(nullable = false, unique = true, length = 7)
+    @Column(nullable = false, unique = true, length = 12)
     private String licensePlateCar;
     @Column(nullable = false, length = 70)
     private String brandCar;
