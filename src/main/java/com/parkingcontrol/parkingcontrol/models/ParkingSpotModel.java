@@ -3,7 +3,6 @@ package com.parkingcontrol.parkingcontrol.models;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Objects;
 import java.util.UUID;
 
 @Entity

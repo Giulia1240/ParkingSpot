@@ -13,8 +13,8 @@ import javax.transaction.Transactional;
 @Transactional
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-@Autowired
-   UserRepository userRepository;
+    @Autowired
+    UserRepository userRepository;
 
     public UserDetailsServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -24,5 +24,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         User userModel = userRepository.findByUserName(userName)
                 .orElseThrow(() -> new UsernameNotFoundException("User Not Found with username: " + userName));
-        return userModel;    }
+        return new org.springframework.security.core.userdetails.User(userModel.getUsername(), userModel.getPassword(), true, true, true, true, userModel.getAuthorities());
+    }
 }
